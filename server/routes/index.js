@@ -7,6 +7,7 @@ router.get("/ping", (req, res) => {
 });
 
 router.get("/books", BookController.getAll);
+router.get("/books/:id", BookController.getById);
 router.post("/books", BookController.add);
 router.put("/books/:id", BookController.update);
 router.delete("/books/:id", BookController.delete);

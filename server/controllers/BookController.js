@@ -10,6 +10,16 @@ class BookController {
     }
   }
 
+  static async getById(req, res) {
+    try {
+      const id = req.params.id;
+      const book = await BookModel.findById(id);
+      res.status(200).json({ status: "success", data: book });
+    } catch (error) {
+      res.status(500).json({ status: "fail", error: error });
+    }
+  }
+
   static async add(req, res) {
     try {
       const bookPayload = {
